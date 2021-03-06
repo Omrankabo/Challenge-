@@ -1,0 +1,286 @@
+/* -------- Manrope 600 ----------- */
+@font-face {
+  font-family: manropeSemiBold;
+  src: url(assets/static/Manrope-SemiBold.ttf);
+}
+/* -------- Manrope 800 ----------- */
+@font-face {
+  font-family: manropeExtra;
+  src: url(assets/static/Manrope-ExtraBold.ttf);
+}
+@font-face {
+  font-family: manrope;
+  src: url(assets/static/Manrope-Regular.ttf);
+}
+:root {
+  /*-*-----------Primary ---------*-*/
+
+  --fu-sl: hsl(174, 77%, 80%); /* Full Slider Bar*/
+  --sl-bg: hsl(174, 86%, 45%); /* Slider Backround */
+  --dis-Bg: hsl(14, 92%, 95%); /* Discount Background */
+  --dis-tx: hsl(15, 100%, 70%); /* Discount Text */
+  --cta-tx: hsl(226, 100%, 87%); /* CTA Text */
+
+  /*-*-----------Neutral ---------*-*/
+
+  --PCbg: hsl(0, 0%, 100%); /* Pricing Component Background */
+  --mainBg: hsl(230, 100%, 99%); /* Main Background */
+  --empty-sl: hsl(224, 65%, 95%); /* Empty Slider Bar */
+  --toggle-bg: hsl(223, 50%, 87%); /* Toggle Background */
+  --text: hsl(225, 20%, 60%);
+  --tx-cta-bg: hsl(227, 35%, 25%); /* Text .tgl-btn CTA Background */
+
+  /*------ sizing ------*/
+  --fs: 15px; /*Font size (Introductory Paragraph)*/
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+.attribution {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 11px;
+  text-align: center;
+  background-color: var(--tx-cta-bg);
+  color: var(--PCbg);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.13);
+  border-radius: 20px;
+}
+.attribution a {
+  text-decoration: none;
+  color: var(--cta-tx);
+}
+html {
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: manropeSemiBold;
+  background: var(--mainBg) url(assets/images/bg-pattern.svg) top no-repeat;
+}
+span {
+  margin-right: 6px;
+}
+h1,
+h2 {
+  font-family: manropeExtra;
+  font-size: 1.78rem;
+}
+p {
+  font-size: 15px;
+}
+.header {
+  display: grid;
+  place-items: center;
+  padding: 4rem;
+  text-align: center;
+  background: url(assets/images/pattern-circles.svg) center no-repeat;
+}
+.header h1 {
+  color: var(--tx-cta-bg);
+}
+.header p {
+  color: var(--text);
+}
+.card {
+  background: var(--mainBg);
+  width: 36rem;
+  /* padding: 3rem; */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.13);
+}
+header {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 2rem;
+  grid-template-rows: repeat(3, 1fr);
+
+  border-bottom: 1px solid hsla(225, 20%, 60%, 0.534);
+}
+.viwes {
+  font-family: manropeExtra;
+  color: var(--text);
+}
+.price {
+  justify-self: end;
+  color: var(--text);
+}
+.price span {
+  font-family: manropeExtra;
+  font-size: 2rem;
+  color: var(--tx-cta-bg);
+}
+.range {
+  grid-column: span 2 / auto;
+  position: relative;
+}
+.range-slider {
+  position: relative;
+  background: var(--empty-sl);
+  appearance: none;
+  width: 100%;
+  height: 0.7rem;
+  border-radius: 10px;
+}
+.range-slider::-webkit-slider-thumb {
+  background: var(--sl-bg) url(assets/images/icon-slider.svg) center no-repeat;
+  width: 2rem;
+  height: 2rem;
+  appearance: none;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px var(--fu-sl);
+  z-index: 100;
+  cursor: pointer;
+}
+.slider {
+  position: absolute;
+  height: 0.7rem;
+  left: 0;
+  top: 5.5px;
+  border-radius: 10px;
+  background: var(--fu-sl);
+  z-index: 2;
+}
+.container {
+  grid-row: 3;
+  grid-column: span 2;
+  justify-self: end;
+  display: flex;
+  /* justify-content: end; */
+}
+.container p {
+  padding: 0 0.5rem;
+}
+.p-color {
+  color: var(--text);
+}
+.to-btn {
+  width: 3rem;
+  height: 1.8rem;
+  background: var(--toggle-bg);
+  border-radius: 15px;
+  appearance: none;
+  position: relative;
+  cursor: pointer;
+}
+.to-btn::after {
+  position: absolute;
+  content: "";
+  top: 4.5px;
+  left: 57%;
+  border-radius: 50%;
+  height: 1.2rem;
+  width: 1.2rem;
+  background: var(--PCbg);
+  cursor: pointer;
+  transition: 00.5s;
+}
+
+.to-btn:checked {
+  background: var(--fu-sl);
+  transition: 0.5s;
+}
+.to-btn:checked::after {
+  transform: translate(-130%);
+  transition: 0.5s;
+}
+.discount {
+  background-color: var(--dis-Bg);
+  color: var(--dis-tx);
+  border-radius: 10px;
+  padding: 0 0.4rem;
+  width: 3rem;
+  height: 1.4rem;
+  display: none;
+  font-size: var(--fs);
+  transition: 0.5s;
+}
+.showDis {
+  display: inline;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+main h4 embed {
+  padding-right: 0.5rem;
+}
+main h4 {
+  color: var(--text);
+  font-size: var(--fs);
+  line-height: 1.5rem;
+}
+.btn {
+  justify-self: end;
+  align-self: center;
+  background: var(--tx-cta-bg);
+  color: var(--cta-tx);
+  padding: 0.8rem 3rem;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  .header p {
+    width: 14.5rem;
+  }
+  .card {
+    width: 25rem;
+  }
+  header {
+    grid-template-rows: repeat(4, 2rem);
+  }
+  .viwes {
+    grid-row: span 1;
+    grid-column: span 2;
+    justify-self: center;
+  }
+  .range {
+    grid-row: 2;
+  }
+  .price {
+    grid-row: 3;
+    grid-column: span 2;
+
+    justify-self: center;
+  }
+  .container {
+    grid-row: 4;
+    grid-column: span 2;
+    justify-self: center;
+    align-items: center;
+    /* border: 1px solid magenta; */
+  }
+  .container p {
+    padding: 0.3rem;
+  }
+  main {
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .limits {
+    grid-column: span 2;
+    justify-self: center;
+    align-self: center;
+  }
+  .btn {
+    grid-column: span 2;
+    grid-row: 2;
+    align-self: end;
+    justify-self: center;
+  }
+}
